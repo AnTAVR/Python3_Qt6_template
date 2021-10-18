@@ -108,13 +108,13 @@ def main() -> int:
     # --------
 
     # --------
+    DIR_PO.mkdir(parents=True, exist_ok=True)
+
     import argparse
     list_files = (argparse.__file__ + '\n', 'src/libs/args/__init__.py')
     exit_code = gen_mo(argparse.__name__, list_files)
     if exit_code:
         return exit_code
-
-    DIR_PO.mkdir(parents=True, exist_ok=True)
 
     list_files = tuple(
         str(path.relative_to(SRC_DIR.parent)) + '\n'
